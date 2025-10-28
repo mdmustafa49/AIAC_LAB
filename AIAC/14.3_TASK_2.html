@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Info Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --background-light: #f8fafc;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 107%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        header h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: white;
+            color: var(--text-color);
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Info Portal</h1>
+        <p>Your comprehensive academic management system</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#courses"><i class="fas fa-book"></i> Courses</a></li>
+            <li><a href="#grades"><i class="fas fa-chart-line"></i> Grades</a></li>
+            <li><a href="#schedule"><i class="fas fa-calendar"></i> Schedule</a></li>
+            <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="main-content">
+            <h2>Welcome Back, Student!</h2>
+            <p>Access your academic information, course materials, and more in one place.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Current Courses</h3>
+                    <p>6 Active</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Assignments</h3>
+                    <p>3 Pending</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>GPA</h3>
+                    <p>3.8/4.0</p>
+                </div>
+            </div>
+
+            <section class="card">
+                <h3>Upcoming Deadlines</h3>
+                <ul>
+                    <li>Math Assignment - Due Tomorrow</li>
+                    <li>Physics Lab Report - Due in 3 days</li>
+                    <li>Literature Essay - Due in 1 week</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="sidebar">
+            <div class="card">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><i class="fas fa-calendar-alt"></i> Academic Calendar</li>
+                    <li><i class="fas fa-clock"></i> Exam Schedule</li>
+                    <li><i class="fas fa-book"></i> Learning Resources</li>
+                    <li><i class="fas fa-user-tie"></i> Academic Advisor</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Announcements</h3>
+                <p>Mid-term examinations start next week</p>
+                <p>Library extended hours during finals</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: support@studentportal.edu</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p>Help Center</p>
+                <p>Student Resources</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p>Facebook | Twitter | Instagram</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
